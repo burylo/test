@@ -2,3 +2,5 @@ wordpress/
 db/
 .env
 .git/
+
+terraform/.*
