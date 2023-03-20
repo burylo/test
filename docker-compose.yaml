@@ -2,22 +2,29 @@ version: '3'
 
 services:
   wordpress:
+  # For test use latest WP image
     image: wordpress
+  # Attach local folder
     volumes:
       - ./wordpress:/var/www/html
     restart: always
     depends_on:
       - db
+  # Use envs from file
     env_file:
       - .env
+  # Bind port
     ports:
       - 80:80
     
   db:
+  # For test use mysql:8.0.32
     image: mysql:8.0.32
     restart: always
+  # Attach db to local folder
     volumes:
       - ./db:/var/lib/mysql
+  # Use envs from file
     env_file:
       - .env
 volumes:
