@@ -3,4 +3,5 @@ db/
 .env
 .git/
 
+Jenkins-container
 terraform/.*
