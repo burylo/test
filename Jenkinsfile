@@ -16,7 +16,7 @@ pipeline {
     stage('Make mysql WP site dump'){
       steps {
         withCredentials([usernamePassword(credentialsId:"${CRED_ID}", passwordVariable: 'pass', usernameVariable: 'user')]){
-          sh 'mysqldump -h ${MYSQL_HOST} -u ${user} -p${pass} > /home/wordpress/my_site.sql'
+          sh 'mysqldump -h ${MYSQL_HOST} -u ${user} -p${pass} wordpress > /home/wordpress/my_site.sql'
         }
       }
     }  
