@@ -4,7 +4,7 @@ pipeline {
   environment {
     GITHUB_BRANCH = 'dev'
     MYSQL_HOST = 'db'
-    CRED_ID = 'test'
+    CRED_ID = 'mysql_cred'
   }
 
   stages {
