@@ -5,6 +5,7 @@ pipeline {
     GITHUB_BRANCH = 'dev'
     MYSQL_HOST = 'db'
     CRED_ID = 'mysql_cred'
+    DB_NAME = 'wordpress'
   }
 
   stages {
@@ -16,7 +17,7 @@ pipeline {
     stage('Make mysql WP site dump'){
       steps {
         withCredentials([usernamePassword(credentialsId:"${CRED_ID}", passwordVariable: 'pass', usernameVariable: 'user')]){
-          sh 'mysqldump -h ${MYSQL_HOST} -u ${user} -p${pass} wordpress > /home/wordpress/my_site.sql'
+          sh 'mysqldump -h ${MYSQL_HOST} -u ${user} -p${pass} --no-tablespaces ${DB_NAME} > /home/wordpress/my_site.sql'
         }
       }
     }  
