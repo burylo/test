@@ -13,11 +13,12 @@ pipeline {
         git(url: 'https://github.com/burylo/test.git', branch: "${GITHUB_BRANCH}")
       }
     }
-    stage('Make mysql WP site dump')
+    stage('Make mysql WP site dump'){
       steps {
         withCredentials([usernamePassword(credentialsId:"${CRED_ID}", passwordVariable: 'pass', usernameVariable: 'user')]){
           sh 'mysqldump -h ${MYSQL_HOST} -u ${user} -p{pass} > /home/wordpress/my_site.sql'
         }
       }
+    }  
   }
 }
