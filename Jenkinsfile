@@ -20,6 +20,11 @@ pipeline {
           sh 'mysqldump -h ${MYSQL_HOST} -u ${user} -p${pass} --no-tablespaces ${DB_NAME} > /home/wordpress/my_site.sql'
         }
       }
+    }
+    stage('Test Docker access'){
+      steps{
+        sh 'docker ps' 
+      }
     }  
   }
 }

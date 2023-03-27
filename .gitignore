@@ -5,3 +5,5 @@ db/
 
 Jenkins-container
 terraform/.*
+
+.DS_Store
